@@ -1,0 +1,399 @@
+/* Basic Reset & Retro Typography */
+:root {
+    --primary-color: #DB2285; /* Jade Designs Pink/Magenta */
+    --secondary-color: #69A73D; /* Jade Designs Green */
+    --accent-color: #F57C00; /* Warm Orange Accent */
+    --background-color: #FAF3E0; /* Retro Off-White/Beige */
+    --text-color: #5D4037;     /* Dark Brown for text */
+    --heading-color: #4E342E; /* Slightly darker brown for headings */
+    --border-color: #D7CCC8;     /* Light brownish border */
+    --card-bg-color: #FFF8E1; /* Creamy background for cards/sections */
+
+    --border-radius-large: 15px; /* More rounded corners */
+    --border-radius-small: 8px;
+
+    /* Font families */
+    --heading-font: 'Righteous', cursive;
+    --body-font: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Slightly more open line height */
+    scroll-behavior: smooth;
+
+    /* --- Add Floral Background Pattern --- */
+    background-image: url("path/to/your/floral-pattern.png"); /* <-- Replace with your image URL/path */
+    background-repeat: repeat; /* Tile the pattern */
+    background-blend-mode: multiply; /* Blend pattern with background color */
+    /* You might need 'background-size' depending on the pattern, e.g., background-size: 300px; */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    margin-top: 0;
+    color: var(--heading-color);
+    text-transform: uppercase; /* Uppercase for a retro feel */
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: var(--secondary-color); /* Green for links */
+    font-weight: 700; /* Bold links */
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color); /* Pink underline */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color); /* Pink on hover */
+    text-decoration-color: var(--secondary-color); /* Green underline on hover */
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--card-bg-color);
+    padding: 0.75rem 5%; /* Slightly reduced vertical padding to compensate for larger logo */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--heading-color);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo {
+    height: 100px; /* Increased from 80px to 100px */
+    width: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li:first-child {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    padding-right: 3rem; /* Increased spacing between logo and nav items */
+}
+
+nav ul li:first-child img {
+    transition: transform 0.3s ease;
+}
+
+nav ul li:first-child img:hover {
+    transform: scale(1.05);
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Main Content & Sections */
+main {
+    padding: 2rem 5%;
+}
+
+section {
+    padding: 5rem 0;
+    border-bottom: 2px dashed var(--border-color); /* Dashed retro border */
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-large);
+    margin-bottom: 5rem;
+    padding: 3rem;
+    border: 3px solid var(--heading-color);
+    box-shadow: 5px 5px 0px var(--secondary-color); /* Hard shadow effect */
+}
+
+.hero h1 {
+    font-family: var(--heading-font);
+    font-size: 4.5rem; /* Slightly larger for the fun font */
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0 var(--secondary-color); /* Text shadow */
+    letter-spacing: 0.02em;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+/* Work Section - Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+    gap: 3rem; /* Increased gap between items */
+    max-width: 1400px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center the grid */
+    padding: 0 2rem; /* Add some padding on the sides */
+}
+
+.project-item {
+    background-color: var(--card-bg-color);
+    padding: 0; /* Remove padding to allow image to fill */
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--heading-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: left; /* Align text to the left */
+    box-shadow: 4px 4px 0px var(--primary-color);
+    overflow: hidden; /* For image containment */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--secondary-color);
+}
+
+.project-image {
+    width: 100%;
+    height: 300px; /* Fixed height for images */
+    object-fit: cover; /* Ensure images cover the area nicely */
+    border-bottom: 2px solid var(--heading-color);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Contact Section */
+#contact form {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    display: grid;
+    gap: 1.5rem;
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--heading-color);
+    box-shadow: 4px 4px 0px var(--primary-color);
+}
+
+#contact label {
+    font-family: var(--heading-font);
+    font-weight: normal; /* Righteous is already bold enough */
+    text-transform: uppercase;
+    color: var(--heading-color);
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--heading-color);
+    border-radius: var(--border-radius-small);
+    font-family: inherit;
+    background-color: var(--background-color);
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(219, 34, 133, 0.3);
+}
+
+
+#contact button {
+    font-family: var(--heading-font);
+    padding: 1rem 2rem; /* Bigger button */
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--heading-color);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    justify-self: start;
+    box-shadow: 3px 3px 0px var(--secondary-color); /* Button shadow */
+}
+
+#contact button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 1px 1px 0px var(--primary-color);
+    transform: translate(2px, 2px);
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.social-links a {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    text-decoration-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2.5rem 5%;
+    margin-top: 3rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    border-top: 2px dashed var(--border-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.8rem 0;
+    }
+
+    nav ul li:first-child {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 1.5rem 5%;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        padding: 0 1rem;
+    }
+
+    .project-image {
+        height: 250px; /* Slightly smaller images on mobile */
+    }
+
+    #contact form {
+        padding: 1.5rem;
+    }
+}
+
+/* Remove Fade In (might clash with retro) */
+/* body {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+} */
+
+/* Responsive adjustments for project grid */
+@media (max-width: 1024px) {
+    .project-grid {
+        gap: 2rem;
+    }
+} 
